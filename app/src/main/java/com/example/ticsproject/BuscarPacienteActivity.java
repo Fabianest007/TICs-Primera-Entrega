@@ -38,8 +38,37 @@ public class BuscarPacienteActivity extends AppCompatActivity {
                 apellidoMaterno.setText(paciente.getApellido_materno());
             } else {
                 this.message("Error: No se encontró ningun paciente con ese rut");
+                rutPaciente.setText("");
+                nombresPaciente.setText("");
+                apellidoPaterno.setText("");
+                apellidoMaterno.setText("");
             }
 
+        } catch (Exception e) {
+            this.message("Error: "+ e.getMessage());
+        }
+    }
+
+    public void updatePaciente(View view){
+        try {
+            EditText rutPaciente = findViewById(R.id.rutPacienteInput);
+            if (rutPaciente.getText().toString().isEmpty()){
+                this.message("Error: Debe buscar un rut");
+                return;
+            }
+
+            EditText nombresPaciente = findViewById(R.id.nombresPacienteInput);
+            EditText apellidoPaterno = findViewById(R.id.apellidoPaternoInput);
+            EditText apellidoMaterno = findViewById(R.id.apellidoMaternoInput);
+
+            NegocioMantenedorPaciente mantenedorPaciente = new NegocioMantenedorPaciente(this);
+            Paciente paciente = new Paciente();
+            paciente.setRut(rutPaciente.getText().toString());
+            paciente.setNombres(nombresPaciente.getText().toString());
+            paciente.setApellido_paterno(apellidoPaterno.getText().toString());
+            paciente.setApellido_materno(apellidoMaterno.getText().toString());
+            mantenedorPaciente.updatePaciente(paciente);
+            this.message("Paciente actualizado correctamente");
         } catch (Exception e) {
             this.message("Error: "+ e.getMessage());
         }

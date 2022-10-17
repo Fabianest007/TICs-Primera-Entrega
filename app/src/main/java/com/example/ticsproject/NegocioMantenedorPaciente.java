@@ -58,10 +58,10 @@ public class NegocioMantenedorPaciente extends SQLiteOpenHelper {
         if(db != null){
             String querySQL = "UPDATE pacientes " +
                     " SET " +
-                    " nombres = '" + paciente.getNombres() + "," +
-                    " apellido_paterno = '" + paciente.getApellido_paterno() + "," +
+                    " nombres = '" + paciente.getNombres() + "'," +
+                    " apellido_paterno = '" + paciente.getApellido_paterno() + "'," +
                     " apellido_materno = '" + paciente.getApellido_materno() +
-                    " WHERE rut = '" + paciente.getRut()+"';";
+                    "' WHERE rut = '" + paciente.getRut()+"';";
             db.execSQL(querySQL);
         }
     }

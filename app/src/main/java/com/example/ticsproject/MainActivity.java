@@ -27,8 +27,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void irBuscarPaciente(View view) {
         Intent intent = new Intent(this,BuscarPacienteActivity.class);
+        startActivity(intent);
+    }
+
+    public void irListarPacientes(View view) {
+        Intent intent = new Intent(this,ListarPacientesActivity.class);
         startActivity(intent);
     }
 }

@@ -44,18 +44,19 @@
         android:text="Buscar"
         android:onClick="irBuscarPaciente"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/butonIrListarPacientes"
         app:layout_constraintStart_toEndOf="@+id/butonIrRegistrarPaciente"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/butonIrListarPacientes"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="97dp"
         android:text="Listar"
+        android:onClick="irListarPacientes"
         app:layout_constraintBottom_toTopOf="@+id/button7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/butonIrBuscarPaciente"
@@ -109,7 +110,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button6"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/butonIrListarPacientes" />
 
     <TextView
         android:id="@+id/textView6"
