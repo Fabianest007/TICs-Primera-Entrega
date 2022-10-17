@@ -83,7 +83,13 @@ public class NegocioMantenedorPaciente extends SQLiteOpenHelper {
 
             Cursor cursor = db.rawQuery("SELECT * FROM pacientes " +
                     " WHERE rut = '" + rut+"';",null);
-            cursor.moveToFirst();
+
+            //Si el cursor tiene datos, se mueve al primer registro
+
+
+            if(!cursor.moveToFirst()){
+                return null;
+            }
 
             Paciente paciente = new Paciente(cursor.getString(0),
                     cursor.getString(1),
