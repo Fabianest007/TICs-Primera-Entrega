@@ -1,5 +1,12 @@
 package com.example.ticsproject;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+
 public class NegocioMantenedorCirugias extends SQLiteOpenHelper {
       private static final int DATABASE_VERSION = 1;
       private static final String DATABASE_NAME = "clinica.db";
@@ -13,9 +20,9 @@ public class NegocioMantenedorCirugias extends SQLiteOpenHelper {
                "estado_cirugia_id INTEGER NOT NULL, " +
                "FOREIGN KEY (rut_paciente) REFERENCES pacientes(rut)," +
                "FOREIGN KEY (estado_cirugia_id) REFERENCES estado_cirugias(id))";
-   
+
       public NegocioMantenedorCirugias(Context context) {
-         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
       }
 
       @Override

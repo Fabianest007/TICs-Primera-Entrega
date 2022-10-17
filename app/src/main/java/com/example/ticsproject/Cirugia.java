@@ -1,5 +1,7 @@
 package com.example.ticsproject;
 
+import java.io.Serializable;
+
 public class Cirugia implements Serializable {
       private String nombre, descripcion, fecha, hora, rut_paciente;
       private int id, estado_cirugia_id;
@@ -13,8 +15,11 @@ public class Cirugia implements Serializable {
          this.rut_paciente = rut_paciente;
          this.estado_cirugia_id = estado_cirugia_id;
       }
-   
-      public int getId() {
+
+    public Cirugia() {
+    }
+
+    public int getId() {
          return id;
       }
    
