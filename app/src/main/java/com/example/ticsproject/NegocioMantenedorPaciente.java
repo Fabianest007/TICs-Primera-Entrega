@@ -58,10 +58,10 @@ public class NegocioMantenedorPaciente extends SQLiteOpenHelper {
         if(db != null){
             String querySQL = "UPDATE pacientes " +
                     " SET " +
-                    " nombres = '" + paciente.getNombres() + "," +
-                    " apellido_paterno = '" + paciente.getApellido_paterno() + "," +
+                    " nombres = '" + paciente.getNombres() + "'," +
+                    " apellido_paterno = '" + paciente.getApellido_paterno() + "'," +
                     " apellido_materno = '" + paciente.getApellido_materno() +
-                    " WHERE rut = '" + paciente.getRut()+"';";
+                    "' WHERE rut = '" + paciente.getRut()+"';";
             db.execSQL(querySQL);
         }
     }
@@ -83,7 +83,13 @@ public class NegocioMantenedorPaciente extends SQLiteOpenHelper {
 
             Cursor cursor = db.rawQuery("SELECT * FROM pacientes " +
                     " WHERE rut = '" + rut+"';",null);
-            cursor.moveToFirst();
+
+            //Si el cursor tiene datos, se mueve al primer registro
+
+
+            if(!cursor.moveToFirst()){
+                return null;
+            }
 
             Paciente paciente = new Paciente(cursor.getString(0),
                     cursor.getString(1),

@@ -12,6 +12,9 @@ public class Paciente implements Serializable {
         this.rut = rut;
     }
 
+    public Paciente() {
+    }
+
     public String getNombres() {
         return nombres;
     }
