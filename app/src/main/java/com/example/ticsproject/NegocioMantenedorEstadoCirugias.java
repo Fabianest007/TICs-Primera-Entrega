@@ -10,29 +10,41 @@ import java.util.ArrayList;
 public class NegocioMantenedorEstadoCirugias extends SQLiteOpenHelper {
    private static final int DATABASE_VERSION = 1;
    private static final String DATABASE_NAME = "clinica.db";
-   private static final String ESTADO_CIRUGIAS_TABLE = "CREATE TABLE estado_cirugias (" +
+   private static final String ESTADO_CIRUGIAS_TABLE = "CREATE TABLE IF NOT EXISTS estadoCirugias (" +
          "id INTEGER PRIMARY KEY AUTOINCREMENT, "+
          "nombre TEXT NOT NULL)";
+
    //estados seeder (1, 'Pendiente'), (2, 'En Proceso'), (3, 'Finalizada'), (4, 'Cancelada')
-   private static final String SEEDER = "INSERT INTO estado_cirugias (id, nombre)" + 
+   private static final String SEEDER = "INSERT INTO estadoCirugias (id, nombre)" +
          "VALUES (1, 'Pendiente')," +
          "(2, 'En Proceso')," +
          "(3, 'Finalizada')," +
          "(4, 'Cancelada')";
+
+
 
    public NegocioMantenedorEstadoCirugias(Context context) {
       super(context, DATABASE_NAME, null, DATABASE_VERSION);
    }
 
    @Override
-   public void onCreate(SQLiteDatabase db) {
+   public void onCreate(SQLiteDatabase db)  {
       db.execSQL(ESTADO_CIRUGIAS_TABLE);
-      db.execSQL(SEEDER);
    }
 
    @Override
    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
       db.execSQL("DROP TABLE IF EXISTS '" + ESTADO_CIRUGIAS_TABLE + "'");
+   }
+
+   public void seeder(){
+      SQLiteDatabase db = getWritableDatabase();
+      db.execSQL(this.SEEDER);
+   }
+
+   public void init(){
+      SQLiteDatabase db = getWritableDatabase();
+      this.onCreate(db);
    }
 
    //CRUD ESTADO CIRUGIA
@@ -41,7 +53,7 @@ public class NegocioMantenedorEstadoCirugias extends SQLiteOpenHelper {
       SQLiteDatabase db = getWritableDatabase();
 
       if(db != null){
-         String querySQL = "INSERT INTO estado_cirugias " +
+         String querySQL = "INSERT INTO estadoCirugias " +
                "(nombre) VALUES ('" +
                estadoCirugia.getNombre() + "');";
          db.execSQL(querySQL);
@@ -52,7 +64,7 @@ public class NegocioMantenedorEstadoCirugias extends SQLiteOpenHelper {
       SQLiteDatabase db = getWritableDatabase();
 
       if(db != null){
-         String querySQL = "UPDATE estado_cirugias " +
+         String querySQL = "UPDATE estadoCirugias " +
                "SET nombre = '" + estadoCirugia.getNombre() + "' " +
                "WHERE id = " + estadoCirugia.getId() + ";";
          db.execSQL(querySQL);
@@ -63,7 +75,7 @@ public class NegocioMantenedorEstadoCirugias extends SQLiteOpenHelper {
       SQLiteDatabase db = getWritableDatabase();
 
       if(db != null){
-         String querySQL = "DELETE FROM estado_cirugias " +
+         String querySQL = "DELETE FROM estadoCirugias " +
                "WHERE id = " + id + ";";
          db.execSQL(querySQL);
       }
@@ -74,7 +86,7 @@ public class NegocioMantenedorEstadoCirugias extends SQLiteOpenHelper {
       EstadoCirugias estadoCirugia = new EstadoCirugias();
 
       if(db != null){
-         String querySQL = "SELECT * FROM estado_cirugias " +
+         String querySQL = "SELECT * FROM estadoCirugias " +
                "WHERE id = " + id + ";";
          Cursor cursor = db.rawQuery(querySQL, null);
 
@@ -92,7 +104,7 @@ public class NegocioMantenedorEstadoCirugias extends SQLiteOpenHelper {
       ArrayList<EstadoCirugias> estadoCirugias = new ArrayList<>();
 
       if(db != null){
-         String querySQL = "SELECT * FROM estado_cirugias;";
+         String querySQL = "SELECT * FROM estadoCirugias;";
          Cursor cursor = db.rawQuery(querySQL, null);
 
          if(cursor.moveToFirst()){
