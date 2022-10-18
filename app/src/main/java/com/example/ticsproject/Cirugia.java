@@ -19,59 +19,59 @@ public class Cirugia implements Serializable {
     public Cirugia() {
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getRut_paciente() {
+        return rut_paciente;
+    }
+
+    public void setRut_paciente(String rut_paciente) {
+        this.rut_paciente = rut_paciente;
+    }
+
     public int getId() {
-         return id;
-      }
-   
-      public void setId(int id) {
-         this.id = id;
-      }
-   
-      public String getNombre() {
-         return nombre;
-      }
-   
-      public void setNombre(String nombre) {
-         this.nombre = nombre;
-      }
-   
-      public String getDescripcion() {
-         return descripcion;
-      }
-   
-      public void setDescripcion(String descripcion) {
-         this.descripcion = descripcion;
-      }
-   
-      public String getFecha() {
-         return fecha;
-      }
-   
-      public void setFecha(String fecha) {
-         this.fecha = fecha;
-      }
-   
-      public String getHora() {
-         return hora;
-      }
-   
-      public void setHora(String hora) {
-         this.hora = hora;
-      }
-   
-      public String getRut_paciente() {
-         return rut_paciente;
-      }
-   
-      public void setRut_paciente(String rut_paciente) {
-         this.rut_paciente = rut_paciente;
-      }
-   
-      public int getEstado_cirugia_id() {
-         return estado_cirugia_id;
-      }
-   
-      public void setEstado_cirugia_id(int estado_cirugia_id) {
-         this.estado_cirugia_id = estado_cirugia_id;
-      }
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getEstado_cirugia_id() {
+        return estado_cirugia_id;
+    }
+
+    public void setEstado_cirugia_id(int estado_cirugia_id) {
+        this.estado_cirugia_id = estado_cirugia_id;
+    }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 public class NegocioMantenedorPaciente extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "clinica.db";
-    private static final String PACIENTE_TABLE = "CREATE TABLE pacientes (" +
+    private static final String PACIENTE_TABLE = "CREATE TABLE IF NOT EXISTS pacientes (" +
             "rut TEXT PRIMARY KEY UNIQUE, "+
             "nombres TEXT NOT NULL, " +
             "apellido_paterno TEXT NOT NULL, " +
@@ -34,6 +34,11 @@ public class NegocioMantenedorPaciente extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS '" + PACIENTE_TABLE + "'");
+    }
+
+    public void init(){
+        SQLiteDatabase db = getWritableDatabase();
+        this.onCreate(db);
     }
 
     //CRUD PACIENTE
