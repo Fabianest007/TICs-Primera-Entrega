@@ -30,7 +30,7 @@ public class ListarPacientesActivity extends AppCompatActivity {
     public void listarPacientes(View view){
         NegocioMantenedorPaciente mantenedorPaciente = new NegocioMantenedorPaciente(this);
         try {
-            ListView listView = findViewById(R.id.pacientesListView);
+            ListView listView = findViewById(R.id.estadosListView);
             List<Paciente> listaPacientes = mantenedorPaciente.readAllPacientes();
             String[] pacientes = new String[listaPacientes.size()];
             for (int i = 0; i < listaPacientes.size(); i++) {

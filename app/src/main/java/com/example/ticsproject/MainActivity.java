@@ -14,6 +14,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            NegocioMantenedorPaciente pacientes = new NegocioMantenedorPaciente(this);
+            NegocioMantenedorCirugias cirugias = new NegocioMantenedorCirugias(this);
+            NegocioMantenedorEstadoCirugias estados = new NegocioMantenedorEstadoCirugias(this);
+            pacientes.init();
+            cirugias.init();
+            estados.init();
+        } catch (Exception e){
+
+        }
         setContentView(R.layout.activity_main);
     }
 
@@ -35,6 +45,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void irListarPacientes(View view) {
         Intent intent = new Intent(this,ListarPacientesActivity.class);
+        startActivity(intent);
+    }
+
+    public void irListarEstados(View view) {
+        Intent intent = new Intent(this,EstadoCirugiasActivity.class);
+        startActivity(intent);
+    }
+
+    public void irRegistrarCirugia(View view) {
+        Intent intent = new Intent(this,RegistrarCirugiaActivity.class);
+        startActivity(intent);
+    }
+    public void irListarCirugias(View view) {
+        Intent intent = new Intent(this,ListarCirugiasActivity.class);
         startActivity(intent);
     }
 }

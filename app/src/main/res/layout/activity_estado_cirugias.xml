@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EstadoCirugiasActivity">
+
+    <ListView
+        android:id="@+id/estadosListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="29dp"
+        app:layout_constraintBottom_toTopOf="@+id/botonActualizarPaciente3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="17dp"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:text="Listar Estado Cirugías"
+        app:layout_constraintBottom_toTopOf="@+id/estadosListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botonActualizarPaciente3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginBottom="28dp"
+        android:onClick="listarEstados"
+        android:text="Listar"
+        app:layout_constraintBottom_toTopOf="@+id/botonVolver4"
+        app:layout_constraintStart_toStartOf="@+id/botonVolver4"
+        app:layout_constraintTop_toBottomOf="@+id/estadosListView" />
+
+    <Button
+        android:id="@+id/botonVolver4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        android:onClick="backToHome"
+        android:text="Volver al Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/botonActualizarPaciente3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
